@@ -1,5 +1,6 @@
 import 'package:easy_shop_client/core/theme/app_colors.dart';
 import 'package:easy_shop_client/core/widgets/logo_backdrop.dart';
+import 'package:easy_shop_client/core/widgets/theme_mode_button.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -10,33 +11,30 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: onTap,
-        child: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xFFFEF7ED),
-                Color(0xFFFFFCEC),
-                Color(0xFFFFFEFA),
-                Colors.white,
-              ],
-              stops: [0, 0.5, 0.85, 1],
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [context.appColors.background, context.appColors.surface],
+          ),
+        ),
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: onTap,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [LogoBackdrop(), SizedBox(height: 28), _Dots()],
+                ),
+              ),
             ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const LogoBackdrop(),
-              const SizedBox(height: 28),
-              const _Dots(),
-            ],
-          ),
+            const Positioned(top: 44, right: 16, child: ThemeModeButton()),
+          ],
         ),
       ),
     );
@@ -56,7 +54,7 @@ class _Dots extends StatelessWidget {
           width: 9,
           height: 9,
           margin: const EdgeInsets.symmetric(horizontal: 4),
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: AppColors.primary,
             shape: BoxShape.circle,
           ),

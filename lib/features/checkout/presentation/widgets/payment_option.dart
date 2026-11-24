@@ -21,7 +21,9 @@ class PaymentOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: isSelected ? AppColors.primaryLight : AppColors.field,
+      color: isSelected
+          ? context.appColors.primarySoft
+          : context.appColors.field,
       borderRadius: BorderRadius.circular(14),
       child: InkWell(
         borderRadius: BorderRadius.circular(14),
@@ -31,7 +33,7 @@ class PaymentOption extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
-              color: isSelected ? AppColors.primary : AppColors.border,
+              color: isSelected ? AppColors.primary : context.appColors.border,
               width: isSelected ? 1.5 : 1,
             ),
           ),
@@ -70,7 +72,7 @@ class _RadioDot extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
-          color: isSelected ? AppColors.primary : AppColors.border,
+          color: isSelected ? AppColors.primary : context.appColors.border,
           width: 2,
         ),
       ),
@@ -78,7 +80,7 @@ class _RadioDot extends StatelessWidget {
           ? Container(
               width: 10,
               height: 10,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: AppColors.primary,
                 shape: BoxShape.circle,
               ),

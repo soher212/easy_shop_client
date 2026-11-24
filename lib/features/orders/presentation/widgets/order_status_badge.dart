@@ -13,23 +13,23 @@ class OrderStatusBadge extends StatelessWidget {
     final (label, color, background) = switch (status) {
       OrderStatus.pending => (
         'Pending',
-        const Color(0xFFA65F00),
-        AppColors.warningLight,
+        AppColors.warning,
+        context.appColors.warningSoft,
       ),
       OrderStatus.processing => (
         'Processing',
         AppColors.info,
-        AppColors.infoLight,
+        context.appColors.infoSoft,
       ),
       OrderStatus.completed => (
         'Completed',
         AppColors.success,
-        AppColors.successLight,
+        context.appColors.successSoft,
       ),
       OrderStatus.cancelled => (
         'Cancelled',
         AppColors.error,
-        AppColors.errorLight,
+        context.appColors.errorSoft,
       ),
     };
     return Container(

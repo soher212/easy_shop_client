@@ -24,9 +24,9 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: AppColors.surface,
+      color: context.appColors.surface,
       elevation: 2,
-      shadowColor: Colors.black12,
+      shadowColor: context.appColors.shadow,
       borderRadius: BorderRadius.circular(16),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
@@ -118,7 +118,7 @@ class _HeartButton extends StatelessWidget {
         child: Icon(
           isFavorite ? Icons.favorite : Icons.favorite_border,
           size: 18,
-          color: isFavorite ? AppColors.error : AppColors.textGrey,
+          color: isFavorite ? AppColors.error : context.appColors.textMuted,
         ),
       ),
     );
@@ -143,7 +143,7 @@ class _OutOfStockOverlay extends StatelessWidget {
           child: Text(
             'Out of Stock',
             style: AppTextStyles.caption.copyWith(
-              color: AppColors.textPrimary,
+              color: context.appColors.textPrimary,
               fontSize: 11,
               fontWeight: FontWeight.w700,
             ),

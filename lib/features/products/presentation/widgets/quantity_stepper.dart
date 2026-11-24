@@ -21,9 +21,9 @@ class QuantityStepper extends StatelessWidget {
     return Container(
       height: 46,
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: context.appColors.surface,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: AppColors.border),
+        border: Border.all(color: context.appColors.border),
       ),
       child: Row(
         children: [
@@ -67,7 +67,7 @@ class _StepButton extends StatelessWidget {
       onPressed: enabled ? onTap : null,
       icon: Icon(icon, size: 20),
       color: AppColors.primary,
-      disabledColor: AppColors.border,
+      disabledColor: context.appColors.border,
       visualDensity: VisualDensity.compact,
     );
   }

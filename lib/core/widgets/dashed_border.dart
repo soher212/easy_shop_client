@@ -4,19 +4,19 @@ import 'package:flutter/material.dart';
 class DashedBorder extends StatelessWidget {
   final Widget child;
   final double radius;
-  final Color color;
+  final Color? color;
 
   const DashedBorder({
     super.key,
     required this.child,
     this.radius = 14,
-    this.color = AppColors.border,
+    this.color,
   });
 
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: _DashedBorderPainter(radius, color),
+      painter: _DashedBorderPainter(radius, color ?? context.appColors.border),
       child: child,
     );
   }

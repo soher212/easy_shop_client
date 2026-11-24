@@ -133,7 +133,7 @@ class _LocationPickerScreenState extends State<LocationPickerScreen> {
             top: AppDimensions.spaceMedium,
             child: FloatingActionButton.small(
               heroTag: 'my-location',
-              backgroundColor: AppColors.surface,
+              backgroundColor: context.appColors.surface,
               onPressed: _useMyLocation,
               child: _isLocating
                   ? const SizedBox(
@@ -150,8 +150,8 @@ class _LocationPickerScreenState extends State<LocationPickerScreen> {
             bottom: 0,
             child: Container(
               padding: const EdgeInsets.all(AppDimensions.screenPadding),
-              decoration: const BoxDecoration(
-                color: AppColors.surface,
+              decoration: BoxDecoration(
+                color: context.appColors.surface,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
               ),
               child: SafeArea(

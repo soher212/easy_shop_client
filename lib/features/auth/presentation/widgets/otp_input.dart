@@ -48,10 +48,12 @@ class _OtpInputState extends State<OtpInput> {
                 height: 54,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: AppColors.surface,
+                  color: context.appColors.surface,
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(
-                    color: hasDigit ? AppColors.primaryDark : AppColors.border,
+                    color: hasDigit
+                        ? AppColors.primaryDark
+                        : context.appColors.border,
                     width: hasDigit ? 1.5 : 1,
                   ),
                 ),
@@ -74,7 +76,7 @@ class _OtpInputState extends State<OtpInput> {
               keyboardType: TextInputType.number,
               maxLength: widget.length,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              decoration: const InputDecoration(counterText: ''),
+              decoration: InputDecoration(counterText: ''),
             ),
           ),
         ],

@@ -32,11 +32,14 @@ class PaymentSuccessScreen extends StatelessWidget {
         body: Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [AppColors.successSoft, AppColors.surface],
+              colors: [
+                context.appColors.successSoft,
+                context.appColors.surface,
+              ],
             ),
           ),
           padding: const EdgeInsets.all(AppDimensions.screenPadding + 8),
@@ -46,8 +49,8 @@ class PaymentSuccessScreen extends StatelessWidget {
               Container(
                 width: 96,
                 height: 96,
-                decoration: const BoxDecoration(
-                  color: AppColors.successLight,
+                decoration: BoxDecoration(
+                  color: context.appColors.successSoft,
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
@@ -83,7 +86,7 @@ class PaymentSuccessScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               Material(
-                color: AppColors.primaryLight,
+                color: context.appColors.primarySoft,
                 borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
                 child: InkWell(
                   borderRadius: BorderRadius.circular(

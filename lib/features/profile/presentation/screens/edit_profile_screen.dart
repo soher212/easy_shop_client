@@ -260,7 +260,10 @@ class _AvatarEditor extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: AppColors.primary,
                   shape: BoxShape.circle,
-                  border: Border.all(color: AppColors.surface, width: 2),
+                  border: Border.all(
+                    color: context.appColors.surface,
+                    width: 2,
+                  ),
                 ),
                 child: const Icon(
                   Icons.photo_camera_outlined,
@@ -284,9 +287,9 @@ class _SavedBanner extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
-        color: AppColors.successSoft,
+        color: context.appColors.successSoft,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: AppColors.successLight),
+        border: Border.all(color: context.appColors.successSoft),
       ),
       child: Row(
         children: [

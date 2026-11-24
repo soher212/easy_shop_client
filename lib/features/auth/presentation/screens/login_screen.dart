@@ -4,6 +4,7 @@ import 'package:easy_shop_client/core/theme/app_dimensions.dart';
 import 'package:easy_shop_client/core/widgets/app_button.dart';
 import 'package:easy_shop_client/core/widgets/app_snack_bar.dart';
 import 'package:easy_shop_client/core/widgets/app_text_field.dart';
+import 'package:easy_shop_client/core/widgets/theme_mode_button.dart';
 import 'package:easy_shop_client/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:easy_shop_client/features/auth/presentation/widgets/auth_header.dart';
 import 'package:easy_shop_client/features/auth/presentation/widgets/auth_switch_prompt.dart';
@@ -59,7 +60,11 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const SizedBox(height: AppDimensions.spaceLarge),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: ThemeModeButton(),
+                  ),
+                  const SizedBox(height: AppDimensions.spaceSmall),
                   const AuthHeader(
                     title: 'Welcome back',
                     subtitle: 'Sign in to continue shopping',

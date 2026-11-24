@@ -1,4 +1,5 @@
 import 'package:easy_shop_client/core/constants/app_assets.dart';
+import 'package:easy_shop_client/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 // The logo over a soft, feathered grey patch. The logo sits a little high so
@@ -9,7 +10,6 @@ class LogoBackdrop extends StatelessWidget {
 
   const LogoBackdrop({super.key, this.scale = 1});
 
-  static const _patch = Color(0xFFE6E1D4);
   static const _width = 240.0;
   static const _height = 180.0;
   static const _logoWidth = 195.0;
@@ -27,7 +27,7 @@ class LogoBackdrop extends StatelessWidget {
           Positioned.fill(
             child: CustomPaint(
               painter: _FeatheredPatchPainter(
-                _patch.withValues(alpha: 0.75),
+                context.appColors.neutralSoft.withValues(alpha: 0.75),
                 scale,
               ),
             ),

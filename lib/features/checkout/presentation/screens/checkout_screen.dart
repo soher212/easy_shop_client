@@ -243,9 +243,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               ),
             ),
             Container(
-              decoration: const BoxDecoration(
-                color: AppColors.surface,
-                border: Border(top: BorderSide(color: AppColors.border)),
+              decoration: BoxDecoration(
+                color: context.appColors.surface,
+                border: Border(
+                  top: BorderSide(color: context.appColors.border),
+                ),
               ),
               padding: const EdgeInsets.all(AppDimensions.screenPadding),
               child: SafeArea(
@@ -275,9 +277,9 @@ class _Card extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: AppColors.surface,
+      color: context.appColors.surface,
       elevation: 2,
-      shadowColor: Colors.black12,
+      shadowColor: context.appColors.shadow,
       borderRadius: BorderRadius.circular(16),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -441,7 +443,7 @@ class _SummaryBlock extends StatelessWidget {
             ),
           ],
         ),
-        const Divider(height: 22, color: AppColors.border),
+        Divider(height: 22, color: context.appColors.border),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

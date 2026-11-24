@@ -11,7 +11,9 @@ void showAppSnackBar(
     ..showSnackBar(
       SnackBar(
         content: Text(message),
-        backgroundColor: isError ? AppColors.error : AppColors.textPrimary,
+        backgroundColor: isError
+            ? AppColors.error
+            : context.appColors.textPrimary,
         behavior: SnackBarBehavior.floating,
       ),
     );

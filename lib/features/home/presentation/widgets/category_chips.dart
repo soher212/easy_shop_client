@@ -59,7 +59,7 @@ class _Chip extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 8),
       child: Material(
-        color: isSelected ? AppColors.primary : AppColors.surface,
+        color: isSelected ? AppColors.primary : context.appColors.surface,
         borderRadius: BorderRadius.circular(20),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
@@ -70,13 +70,17 @@ class _Chip extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: isSelected ? AppColors.primary : AppColors.border,
+                color: isSelected
+                    ? AppColors.primary
+                    : context.appColors.border,
               ),
             ),
             child: Text(
               label,
               style: AppTextStyles.body.copyWith(
-                color: isSelected ? AppColors.onPrimary : AppColors.textPrimary,
+                color: isSelected
+                    ? AppColors.onPrimary
+                    : context.appColors.textPrimary,
                 fontWeight: FontWeight.w600,
               ),
             ),

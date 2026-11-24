@@ -5,6 +5,7 @@ import 'package:easy_shop_client/core/theme/app_text_styles.dart';
 import 'package:easy_shop_client/core/widgets/error_view.dart';
 import 'package:easy_shop_client/core/widgets/profile_avatar.dart';
 import 'package:easy_shop_client/core/widgets/screen_title_bar.dart';
+import 'package:easy_shop_client/core/widgets/theme_mode_button.dart';
 import 'package:easy_shop_client/features/profile/domain/entities/profile_entity.dart';
 import 'package:easy_shop_client/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
@@ -101,11 +102,13 @@ class _Content extends StatelessWidget {
       padding: const EdgeInsets.all(AppDimensions.screenPadding),
       children: [
         _UserCard(profile: profile),
+        const SizedBox(height: AppDimensions.spaceSmall),
+        const Align(alignment: Alignment.centerRight, child: ThemeModeButton()),
         const SizedBox(height: AppDimensions.spaceMedium),
         Material(
-          color: AppColors.surface,
+          color: context.appColors.surface,
           elevation: 2,
-          shadowColor: Colors.black12,
+          shadowColor: context.appColors.shadow,
           borderRadius: BorderRadius.circular(16),
           clipBehavior: Clip.antiAlias,
           child: Column(
@@ -141,7 +144,7 @@ class _Content extends StatelessWidget {
         ),
         const SizedBox(height: AppDimensions.spaceMedium),
         Material(
-          color: AppColors.errorLight,
+          color: context.appColors.errorSoft,
           borderRadius: BorderRadius.circular(16),
           child: InkWell(
             borderRadius: BorderRadius.circular(16),
@@ -202,7 +205,7 @@ class _Content extends StatelessWidget {
   }) {
     showModalBottomSheet<void>(
       context: context,
-      backgroundColor: AppColors.surface,
+      backgroundColor: context.appColors.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -248,9 +251,9 @@ class _UserCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: AppColors.surface,
+      color: context.appColors.surface,
       elevation: 2,
-      shadowColor: Colors.black12,
+      shadowColor: context.appColors.shadow,
       borderRadius: BorderRadius.circular(16),
       child: Padding(
         padding: const EdgeInsets.all(20),
@@ -314,7 +317,7 @@ class _MenuItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         decoration: BoxDecoration(
           border: showDivider
-              ? const Border(bottom: BorderSide(color: AppColors.border))
+              ? Border(bottom: BorderSide(color: context.appColors.border))
               : null,
         ),
         child: Row(
@@ -322,9 +325,9 @@ class _MenuItem extends StatelessWidget {
             Icon(icon, color: AppColors.primary, size: 22),
             const SizedBox(width: 14),
             Expanded(child: Text(label, style: AppTextStyles.body)),
-            const Icon(
+            Icon(
               Icons.chevron_right,
-              color: AppColors.textGrey,
+              color: context.appColors.textMuted,
               size: 20,
             ),
           ],

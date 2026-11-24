@@ -3,6 +3,7 @@ import 'package:easy_shop_client/core/theme/app_colors.dart';
 import 'package:easy_shop_client/core/theme/app_dimensions.dart';
 import 'package:easy_shop_client/core/theme/app_text_styles.dart';
 import 'package:easy_shop_client/core/widgets/profile_avatar.dart';
+import 'package:easy_shop_client/core/widgets/theme_mode_button.dart';
 import 'package:easy_shop_client/features/profile/domain/entities/profile_entity.dart';
 import 'package:easy_shop_client/features/home/presentation/cubit/home_cubit.dart';
 import 'package:easy_shop_client/features/profile/presentation/cubit/profile_cubit.dart';
@@ -17,7 +18,7 @@ class HomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final topInset = MediaQuery.of(context).padding.top;
     return Container(
-      color: AppColors.surface,
+      color: context.appColors.surface,
       padding: EdgeInsets.fromLTRB(
         AppDimensions.screenPadding,
         topInset + AppDimensions.spaceMedium,
@@ -32,8 +33,8 @@ class HomeHeader extends StatelessWidget {
               Container(
                 width: 40,
                 height: 40,
-                decoration: const BoxDecoration(
-                  color: AppColors.primaryLight,
+                decoration: BoxDecoration(
+                  color: context.appColors.primarySoft,
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
@@ -41,16 +42,21 @@ class HomeHeader extends StatelessWidget {
                   color: AppColors.primary,
                 ),
               ),
-              const SizedBox(width: AppDimensions.spaceSmall + 4),
+              const SizedBox(width: 4),
+              const ThemeModeButton(),
+              const SizedBox(width: 4),
               const _ProfileAvatar(),
             ],
           ),
           const SizedBox(height: AppDimensions.spaceMedium),
           TextField(
             onChanged: context.read<HomeCubit>().search,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: 'Search products...',
-              prefixIcon: Icon(Icons.search, color: AppColors.textGrey),
+              prefixIcon: Icon(
+                Icons.search,
+                color: context.appColors.textMuted,
+              ),
               contentPadding: EdgeInsets.symmetric(vertical: 12),
             ),
           ),

@@ -16,10 +16,10 @@ class FieldLabel extends StatelessWidget {
         style: AppTextStyles.body.copyWith(fontWeight: FontWeight.w600),
         children: [
           if (isOptional)
-            const TextSpan(
+            TextSpan(
               text: ' (Optional)',
               style: TextStyle(
-                color: AppColors.textGrey,
+                color: context.appColors.textMuted,
                 fontWeight: FontWeight.w400,
               ),
             ),

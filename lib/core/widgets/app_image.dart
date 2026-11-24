@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_shop_client/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 // Shows an image from the network, the app assets, or a file on the device.
@@ -22,17 +23,17 @@ class AppImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(borderRadius: borderRadius, child: _image());
+    return ClipRRect(borderRadius: borderRadius, child: _image(context));
   }
 
-  Widget _image() {
+  Widget _image(BuildContext context) {
     if (path.startsWith('http')) {
       return Image.network(
         path,
         width: _width,
         height: size,
         fit: BoxFit.cover,
-        errorBuilder: (_, _, _) => _placeholder(),
+        errorBuilder: (_, _, _) => _placeholder(context),
       );
     }
     if (path.startsWith('assets/')) {
@@ -43,16 +44,19 @@ class AppImage extends StatelessWidget {
       width: _width,
       height: size,
       fit: BoxFit.cover,
-      errorBuilder: (_, _, _) => _placeholder(),
+      errorBuilder: (_, _, _) => _placeholder(context),
     );
   }
 
-  Widget _placeholder() {
+  Widget _placeholder(BuildContext context) {
     return Container(
       width: _width,
       height: size,
-      color: Colors.grey.shade200,
-      child: const Icon(Icons.image_not_supported_outlined),
+      color: context.appColors.neutralSoft,
+      child: Icon(
+        Icons.image_not_supported_outlined,
+        color: context.appColors.textMuted,
+      ),
     );
   }
 }

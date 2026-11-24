@@ -61,7 +61,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.surface,
+      backgroundColor: context.appColors.surface,
       body: Column(
         children: [
           Expanded(
@@ -122,7 +122,7 @@ class _Header extends StatelessWidget {
           right: 16,
           child: _RoundButton(
             icon: isFavorite ? Icons.favorite : Icons.favorite_border,
-            color: isFavorite ? AppColors.error : AppColors.textGrey,
+            color: isFavorite ? AppColors.error : context.appColors.textMuted,
             onTap: () => context.read<FavoritesCubit>().toggle(product),
           ),
         ),
@@ -133,14 +133,10 @@ class _Header extends StatelessWidget {
 
 class _RoundButton extends StatelessWidget {
   final IconData icon;
-  final Color color;
+  final Color? color;
   final VoidCallback onTap;
 
-  const _RoundButton({
-    required this.icon,
-    required this.onTap,
-    this.color = AppColors.textPrimary,
-  });
+  const _RoundButton({required this.icon, required this.onTap, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -179,7 +175,7 @@ class _Details extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
           decoration: BoxDecoration(
-            color: AppColors.primaryLight,
+            color: context.appColors.primarySoft,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Text(
@@ -222,7 +218,7 @@ class _Details extends StatelessWidget {
             width: double.infinity,
             padding: const EdgeInsets.all(AppDimensions.spaceMedium),
             decoration: BoxDecoration(
-              color: AppColors.field,
+              color: context.appColors.field,
               borderRadius: BorderRadius.circular(AppDimensions.radiusCard),
             ),
             child: Column(
@@ -280,7 +276,9 @@ class _StockCard extends StatelessWidget {
     return Container(
       height: 64,
       decoration: BoxDecoration(
-        color: inStock ? AppColors.successSoft : AppColors.errorLight,
+        color: inStock
+            ? context.appColors.successSoft
+            : context.appColors.errorSoft,
         borderRadius: BorderRadius.circular(AppDimensions.radiusCard),
       ),
       child: Column(
@@ -321,9 +319,9 @@ class _AddToCartBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: AppColors.surface,
-        border: Border(top: BorderSide(color: AppColors.border)),
+      decoration: BoxDecoration(
+        color: context.appColors.surface,
+        border: Border(top: BorderSide(color: context.appColors.border)),
       ),
       padding: const EdgeInsets.all(AppDimensions.screenPadding),
       child: SafeArea(
@@ -333,7 +331,7 @@ class _AddToCartBar extends StatelessWidget {
                 height: AppDimensions.buttonHeight,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: AppColors.successLight,
+                  color: context.appColors.successSoft,
                   borderRadius: BorderRadius.circular(
                     AppDimensions.radiusButton,
                   ),

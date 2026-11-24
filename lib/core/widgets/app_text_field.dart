@@ -56,7 +56,7 @@ class _AppTextFieldState extends State<AppTextField> {
                       _obscured
                           ? Icons.visibility_off_outlined
                           : Icons.visibility_outlined,
-                      color: AppColors.textGrey,
+                      color: context.appColors.textMuted,
                     ),
                     onPressed: () => setState(() => _obscured = !_obscured),
                   )

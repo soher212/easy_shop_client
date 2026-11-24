@@ -35,7 +35,7 @@ class AvatarPicker extends StatelessWidget {
           height: _size,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: AppColors.primaryLight,
+            color: context.appColors.primarySoft,
             image: picture == null
                 ? null
                 : DecorationImage(

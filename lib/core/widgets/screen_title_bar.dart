@@ -15,9 +15,9 @@ class ScreenTitleBar extends StatelessWidget {
     final topInset = MediaQuery.of(context).padding.top;
     return Container(
       width: double.infinity,
-      decoration: const BoxDecoration(
-        color: AppColors.surface,
-        border: Border(bottom: BorderSide(color: AppColors.border)),
+      decoration: BoxDecoration(
+        color: context.appColors.surface,
+        border: Border(bottom: BorderSide(color: context.appColors.border)),
       ),
       padding: EdgeInsets.fromLTRB(
         AppDimensions.screenPadding,

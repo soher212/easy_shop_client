@@ -17,7 +17,7 @@ class PaymentMethodLabel extends StatelessWidget {
         Icon(
           isCard ? Icons.credit_card_outlined : Icons.payments_outlined,
           size: 15,
-          color: AppColors.textGrey,
+          color: context.appColors.textMuted,
         ),
         const SizedBox(width: 4),
         Text(

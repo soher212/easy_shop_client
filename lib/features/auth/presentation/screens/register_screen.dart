@@ -189,7 +189,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     '* Required',
                     textAlign: TextAlign.center,
                     style: AppTextStyles.caption.copyWith(
-                      color: AppColors.textGrey,
+                      color: context.appColors.textMuted,
                     ),
                   ),
                 ],

@@ -31,7 +31,7 @@ class DeliveryMapPreview extends StatelessWidget {
             Positioned.fill(
               child: hasLocation
                   ? _map(LatLng(latitude!, longitude!))
-                  : _empty(),
+                  : _empty(context),
             ),
             Positioned.fill(
               child: Material(
@@ -45,9 +45,9 @@ class DeliveryMapPreview extends StatelessWidget {
     );
   }
 
-  Widget _empty() {
+  Widget _empty(BuildContext context) {
     return Container(
-      color: AppColors.primaryLight,
+      color: context.appColors.primarySoft,
       alignment: Alignment.center,
       child: Column(
         mainAxisSize: MainAxisSize.min,

@@ -44,8 +44,8 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
             Container(
               width: 80,
               height: 80,
-              decoration: const BoxDecoration(
-                color: AppColors.successLight,
+              decoration: BoxDecoration(
+                color: context.appColors.successSoft,
                 shape: BoxShape.circle,
               ),
               child: const Icon(

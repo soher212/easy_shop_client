@@ -25,7 +25,7 @@ class LocationPickField extends StatelessWidget {
         ? '${label ?? 'Location set'} — $doneSuffix'
         : emptyText;
     return Material(
-      color: AppColors.primaryLight,
+      color: context.appColors.primarySoft,
       borderRadius: BorderRadius.circular(14),
       child: InkWell(
         borderRadius: BorderRadius.circular(14),

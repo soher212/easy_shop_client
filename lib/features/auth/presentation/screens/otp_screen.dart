@@ -137,8 +137,8 @@ class _BellIcon extends StatelessWidget {
     return Container(
       width: 64,
       height: 64,
-      decoration: const BoxDecoration(
-        color: AppColors.primaryLight,
+      decoration: BoxDecoration(
+        color: context.appColors.primarySoft,
         shape: BoxShape.circle,
       ),
       child: const Icon(

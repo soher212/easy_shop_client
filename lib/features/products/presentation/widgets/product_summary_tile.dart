@@ -26,9 +26,9 @@ class ProductSummaryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: AppColors.surface,
+      color: context.appColors.surface,
       elevation: 2,
-      shadowColor: Colors.black12,
+      shadowColor: context.appColors.shadow,
       borderRadius: BorderRadius.circular(16),
       child: InkWell(
         borderRadius: BorderRadius.circular(16),

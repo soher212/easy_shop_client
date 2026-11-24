@@ -31,9 +31,9 @@ class AppBottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: AppColors.surface,
-        border: Border(top: BorderSide(color: AppColors.border)),
+      decoration: BoxDecoration(
+        color: context.appColors.surface,
+        border: Border(top: BorderSide(color: context.appColors.border)),
       ),
       child: SafeArea(
         top: false,
@@ -41,7 +41,9 @@ class AppBottomNav extends StatelessWidget {
           children: List.generate(items.length, (index) {
             final item = items[index];
             final isSelected = index == currentIndex;
-            final color = isSelected ? AppColors.primary : AppColors.textGrey;
+            final color = isSelected
+                ? AppColors.primary
+                : context.appColors.textMuted;
             return Expanded(
               child: InkWell(
                 onTap: () => onTap(index),

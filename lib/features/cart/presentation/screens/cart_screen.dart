@@ -104,9 +104,9 @@ class _Summary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: AppColors.surface,
-        border: Border(top: BorderSide(color: AppColors.border)),
+      decoration: BoxDecoration(
+        color: context.appColors.surface,
+        border: Border(top: BorderSide(color: context.appColors.border)),
       ),
       padding: const EdgeInsets.all(AppDimensions.screenPadding),
       child: Column(
